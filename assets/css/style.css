@@ -14,5 +14,9 @@
 }
 .login{
     text-align:  center;
-    color: black;
+    
+}
+.logout{
+    text-align:  center;
+    padding: 10px;
 }
