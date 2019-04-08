@@ -1,35 +1,26 @@
+//Find and connect with another signed in user
 
+//Initialize Game
 
-  function submitCreateAccount() {
-      var displayName = document.querySelector("#entry-displayname");
-      var email = document.querySelector("#entry-email");
-      var password = document.querySelector("#entry-password");
+//Initialize Chat 
 
-      firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-      .then(function(user)){
-          // add the display name
-          user.updateProfile({displayName: displayName.value});
-      }
-      console.log(submitCreateAccount)
-  }
+//Create Rock Paper Scissor Buttons
+var choices = ["rock", "paper", "scissors"];
+var userChoice = choices[i];
+var oppChoice = choices[i];
+var wins = 0;
+var ties = 0;
+var losses = 0;
+//Compare selection to opponents, If you win ++ winCount, If you tie ++ tiesCount, If you lose ++ lossesCount
+if ((userChoice === "rock") || (userChoice === "paper") || (userChoice === "scissors")) {
 
-  function signInWithEmailAndPassword () {
-      var email = document.querySelector("#email");
-      var password = document.querySelector("#password");
-
-      firebase.auth().signInWithEmailAndPassword(email.value, password.value);
-  }
-
-  firebase.auth().onAuthStateChanged(authStateChangeListener);
-
-  function authStateChangeListener(user) {
-      //signin
-      if (user) {
-          //display operations
-          Chat.onlogin();
-          Game.onlogin();
-          //sign out
-      } else { 
-          window.location.reload();
-      }
-  }
+    if ((userChoice === "rock" && oppChoice === "scissors") ||
+      (userChoice === "scissors" && oppChoice === "papaer") || 
+      (userChoice === "paper" && oppChoice === "rock")) {
+      wins++;
+    } else if (userChoice === oppChoice) {
+      ties++;
+    } else {
+      losses++;
+    }
+  
